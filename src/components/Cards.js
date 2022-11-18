@@ -25,18 +25,18 @@ const Cards = (props) => {
         </ul>
       </div>
       <div className="px-6 ">
-        <span className="inline-block bg-gray-200 px-3 py-1 text-sm rounded-md font-semibold textgray-700 mr-2 mt-2">
+        <span className="inline-block bg-gray-200 px-3 py-1 text-sm rounded-md font-semibold text-gray-700 mr-2 mt-2">
           #{tags[0]}
         </span>
-        <span className="inline-block bg-gray-200 px-3 py-1 rounded-md text-sm font-semibold textgray-700 mr-2 mt-2">
+        <span className="inline-block bg-gray-200 px-3 py-1 rounded-md text-sm font-semibold text-gray-700 mr-2 mt-2">
           #{tags[1]}
         </span>
-        <span className="inline-block bg-gray-200 px-3 rounded-md py-1 text-sm font-semibold textgray-700 mr-2 mt-2">
+        <span className="inline-block bg-gray-200 px-3 rounded-md py-1 text-sm font-semibold text-gray-700 mr-2 mt-2">
           #{tags[2]}
         </span>
       </div>
       <a
-        href={props.pic.largeImageURL}
+        href={props.pic.webformatURL}
         target="_blank"
         class="inline-flex items-center justify-center w-1/4 h-12 px-6 font-medium m-5 tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-purple-700 hover:bg-orange-500"
         aria-label="Sign up"
