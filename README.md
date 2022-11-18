@@ -14,5 +14,5 @@ A learning project but also customized for my preferences.
 - Tailwind
 - Pixabay API
 
-##### Commercial free use (but going to attribute anway)
+##### Commercial free use (but going to attribute anyway)
 - Tailwind Components
