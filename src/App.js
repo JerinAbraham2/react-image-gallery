@@ -1,40 +1,44 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import Cards from "./components/Cards";
+import ImageSearch from "./components/ImageSearch";
 
 function App() {
+  const [pics, setPics] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // <== cars will be whats shown on the homepage
+  let pictures;
+  if (isLoading) {
+    pictures = <h1 className="text-6xl text-center mx-auto mt-32">Loading</h1>;
+  } else {
+    pictures = pics.map((pic, i) => {
+      return <Cards pic={pic} key={i} />;
+    });
+  }
+  useEffect(() => {
+    const responseJSON = async () => {
+      try {
+        const res = await fetch(
+          `https://pixabay.com/api/?key=${process.env.REACT_APP_PIXABAY_API}&q=${searchTerm}&image_type=photo&pretty=true`
+        );
+        if (res.ok) {
+          const resJson = await res.json();
+          setPics(resJson.hits);
+          setIsLoading(false);
+          return resJson;
+        }
+        throw new Error(res.status);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    responseJSON();
+  }, [searchTerm]); // <== searchTerm so that everytime it changes, it re-renders the images
+
   return (
-    <>
-      <div className="max-w-sm rounded overflow-hidden shadow-lg">
-        <img src="https://source.unsplash.com/random" alt="" className="w-full" />
-        <div className="px-6 py-4">
-          <div className="font-bold text-purple-500 text-xl mb-2">Photo by someone from unsplash/random</div>
-          <ul>
-            <li>
-              <strong>Views: </strong>
-              4000
-            </li>
-            <li>
-              <strong>Downloads: </strong>
-              300
-            </li>
-            <li>
-              <strong>Likes: </strong>
-              400
-            </li>
-          </ul>
-        </div>
-        <div className="px-6 py-4">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold textgray-700 mr-2">
-            #tag1
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold textgray-700 mr-2">
-            #tag2
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold textgray-700 mr-2">
-            #tag3
-          </span>
-        </div>
-      </div>
-    </>
+    <div className="container mx-auto flex flex-col items-center">
+      <ImageSearch searchTerm={text => setSearchTerm(text)} />
+      <div className="grid grid-cols-3 gap-4">{pictures}</div>
+    </div>
   );
 }
 
