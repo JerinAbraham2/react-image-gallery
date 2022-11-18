@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 
 const Cards = (props) => {
-  const [tags, setTags] = useState(props.pic.tags.split(", "));
-
-  console.table(props);
+  const [tags, setTags] = useState([]);
+  useEffect(() => {
+    setTags(props.pic.tags.split(", "));
+  }, [tags])
   return (
     <div className="max-w-sm rounded bg-white shadow-lg flex flex-col justify-between">
       <img src={props.pic.webformatURL} alt="" className="w-full h-56" />
