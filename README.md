@@ -1,4 +1,4 @@
-# Image gallery
+# Stock image searcher
 
 ## Description
 A react app made using tutorial https://www.youtube.com/watch?v=FiGmAI5e91M&t=0s  
