@@ -14,7 +14,7 @@ const ImageSearch = ({ searchTerm }) => {
           type="text"
           id="search"
           name="search"
-          className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-purple-500 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+          className="w-full bg-white rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-purple-500 text-base outline-none text-black py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
           onChange={text => setText(text.target.value)}
         ></input>
         <button

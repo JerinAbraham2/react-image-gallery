@@ -35,14 +35,13 @@ function App() {
   }, [searchTerm]); // <== searchTerm so that everytime it changes, it re-renders the images
 
   return (
-    <div className="bg-slate-200">
-      <div className="container mx-auto flex flex-col items-center">
-        <h1 className="text-6xl text-purple-500 my-5 font-bold font-verdana">
-          Stock image searcher
-        </h1>
-        <ImageSearch searchTerm={(text) => setSearchTerm(text)} />
-        <div className="grid grid-cols-4 gap-4">{pictures}</div>
-      </div>
+    <div className="container mx-auto flex flex-col items-center">
+      <h1 className="text-6xl text-purple-500 my-5 font-bold font-verdana">Stock image searcher</h1>
+      <ImageSearch searchTerm={(text) => setSearchTerm(text)} />
+      {pics.length <= 0 && (
+        <h1 className="text-6xl text-center mx-auto mt-32">No pictures found</h1>
+      )}
+      <div className="grid grid-cols-4 gap-4">{pictures}</div>
     </div>
   );
 }

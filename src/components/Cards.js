@@ -5,7 +5,7 @@ const Cards = (props) => {
 
   console.table(props);
   return (
-    <div className="max-w-sm rounded  shadow-lg flex flex-col justify-between">
+    <div className="max-w-sm rounded bg-white shadow-lg flex flex-col justify-between">
       <img src={props.pic.webformatURL} alt="" className="w-full h-56" />
       <div className="px-6 py-2">
         <div className="font-bold text-purple-500 text-xl my-2">Photo by {props.pic.user}</div>

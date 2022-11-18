@@ -13,3 +13,6 @@ A learning project but also customized for my preferences.
 - React
 - Tailwind
 - Pixabay API
+
+##### Commercial free use (but going to attribute anway)
+- Tailwind Components
